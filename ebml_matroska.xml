@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <EBMLSchema docType="matroska" version="4">
-  <element name="Segment" path="1*1(\Segment)" id="0x18538067" type="master" minOccurs="1" minver="1">
+  <element name="Segment" path="1*1(\Segment)" id="0x18538067" type="master" unknownsizeallowed="1" minOccurs="1" minver="1">
     <documentation lang="en">The Root Element that contains all other Top-Level Elements (Elements defined only at Level 1). A Matroska file is composed of 1 Segment.</documentation>
   </element>
   <element name="SeekHead" path="0*2(\Segment\SeekHead)" cppname="SeekHeader" id="0x114D9B74" type="master" maxOccurs="2" minver="1">
@@ -80,7 +80,7 @@
     <documentation lang="en" type="definition">Writing application (example: "mkvmerge-0.3.3").</documentation>
     <documentation lang="en" type="usage notes">Include the full name of the application followed by the version number.</documentation>
   </element>
-  <element name="Cluster" path="0*(\Segment\Cluster)" id="0x1F43B675" type="master" maxOccurs="unbounded" minver="1">
+  <element name="Cluster" path="0*(\Segment\Cluster)" id="0x1F43B675" type="master" unknownsizeallowed="1" maxOccurs="unbounded" minver="1">
     <documentation lang="en">The Top-Level Element containing the (monolithic) Block structure.</documentation>
   </element>
   <element name="Timecode" path="1*1(\Segment\Cluster\Timecode)" cppname="ClusterTimecode" id="0xE7" type="uinteger" minOccurs="1" minver="1">
@@ -520,7 +520,7 @@
   <element name="ContentSigHashAlgo" path="0*1(\Segment\Tracks\TrackEntry\ContentEncodings\ContentEncoding\ContentEncryption\ContentSigHashAlgo)" id="0x47E6" type="uinteger" minver="1" webm="0" default="0">
     <documentation lang="en">The hash algorithm used for the signature. A value of '0' means that the contents have not been signed but only encrypted. Predefined values:<br/> 1 - SHA1-160<br/> 2 - MD5</documentation>
   </element>
-  <element name="Cues" path="0*1(\Segment\Cues)" id="0x1C53BB6B" type="master" minver="1">
+  <element name="Cues" path="0*1(\Segment\Cues)" id="0x1C53BB6B" type="master" unknownsizeallowed="1" minver="1">
     <documentation lang="en">A Top-Level Element to speed seeking access. All entries are local to the Segment. This Element SHOULD be mandatory for non <a href="http://www.matroska.org/technical/streaming/index.hmtl">"live" streams</a>.</documentation>
   </element>
   <element name="CuePoint" path="1*(\Segment\Cues\CuePoint)" id="0xBB" type="master" minOccurs="1" maxOccurs="unbounded" minver="1">
